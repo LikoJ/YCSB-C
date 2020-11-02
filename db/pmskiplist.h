@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "pmskiplist/skiplist.h"
+#include "skiplist.h"
 #include "core/db.h"
 #include "core/properties.h"
 

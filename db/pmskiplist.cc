@@ -36,7 +36,7 @@ namespace ycsbc {
 
     int PMSkiplist::Scan(const std::string &table, const std::string &key, int len, const std::vector<std::string> *fields,
                       std::vector<std::vector<KVPair>> &result) {
-        pmskiplist::Iterator *it = new Iterator(&db_);
+        pmskiplist::Iterator *it = new pmskiplist::Iterator(&db_);
         it->Seek(key);
         std::string val;
         std::string k;

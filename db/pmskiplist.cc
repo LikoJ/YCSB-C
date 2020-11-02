@@ -12,7 +12,7 @@ using namespace std;
 
 namespace ycsbc {
     PMSkiplist::PMSkiplist() :noResult(0) {
-        db_ = pmskiplist::Skiplist::Skiplist();
+        db_ = new pmskiplist::Skiplist();
     }
 
     int PMSkiplist::Read(const std::string &table, const std::string &key, const std::vector<std::string> *fields,

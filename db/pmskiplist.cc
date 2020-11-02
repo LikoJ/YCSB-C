@@ -11,9 +11,8 @@
 using namespace std;
 
 namespace ycsbc {
-    PMSkiplist::PMSkiplist(const char *dbfilename) :noResult(0) {
-        std::string name(dbfilename);
-        db_ = new pmskiplist::Skiplist(name);
+    PMSkiplist::PMSkiplist() :noResult(0) {
+        db_ = new pmskiplist::Skiplist("test");
     }
 
     int PMSkiplist::Read(const std::string &table, const std::string &key, const std::vector<std::string> *fields,

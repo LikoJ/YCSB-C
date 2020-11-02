@@ -20,7 +20,6 @@ DB* DBFactory::CreateDB(utils::Properties &props) {
   if (props["dbname"] == "basic") {
     return new BasicDB;
   } else if (props["dbname"] == "pmskiplist") {
-    std::string dbpath = props.GetProperty("dbpath","/tmp/test-pmskiplist");
-    return new PMSkiplist(dbpath.c_str());
+    return new PMSkiplist;
   } else return NULL;
 }

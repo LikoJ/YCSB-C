@@ -16,7 +16,7 @@ using std::string;
 namespace ycsbc {
     class PMSkiplist : public DB{
     public:
-        PMSkiplist(const char *dbfilename);
+        PMSkiplist();
         int Read(const std::string &table, const std::string &key,
                  const std::vector<std::string> *fields,
                  std::vector<KVPair> &result);

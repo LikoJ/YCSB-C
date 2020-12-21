@@ -12,7 +12,8 @@ using namespace std;
 
 namespace ycsbc {
     PMBTree::PMBTree() :noResult(0) {
-        db_ = new pmbtree::BTree("test");
+        pmbtree::Options opt;
+        db_ = new pmbtree::BTree(opt);
     }
 
     int PMBTree::Read(const std::string &table, const std::string &key, const std::vector<std::string> *fields,
@@ -100,7 +101,7 @@ namespace ycsbc {
         dst->append(buf, sizeof(buf));
     }
 
-    inline uint64_t PMSkiplist::DecodeFixed64(const char* ptr) {
+    inline uint64_t PMBTree::DecodeFixed64(const char* ptr) {
         const uint8_t* const buffer = reinterpret_cast<const uint8_t*>(ptr);
 
         // Recent clang and gcc optimize this to a single mov / ldr instruction.

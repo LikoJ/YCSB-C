@@ -1,9 +1,7 @@
 #/bin/bash
 
-#load="workloads/load80G4kb.spec"
-load="workloads/test.spec"
+load="workloads/load80G4kb.spec"
 workloads="workloads/workloada.spec workloads/workloadb.spec workloads/workloadc.spec workloads/workloadd.spec workloads/workloade.spec workloads/workloadf.spec"
-dbpath="/mnt/ssd/ceshi"
 
 CLEAN_CACHE() {
     sleep 2
@@ -13,11 +11,7 @@ CLEAN_CACHE() {
     sleep 2
 }
 
-if [ -n "$dbpath" ];then
-    rm -f $dbpath/*
-fi
-
-cmd="./ycsbc -db rocksdb -dbpath $dbpath -threads 1 -P $load -load true -dboption 2 -dbstatistics true -dbwaitforbalance true >>out.out 2>&1 "
+cmd="./ycsbc -db pmbtree -threads 1 -P $load -load true -dbstatistics true -dbwaitforbalance false >>out.out 2>&1 "
 echo $cmd >out.out
 echo $cmd
 eval $cmd
@@ -27,7 +21,7 @@ fi
 
 for file_name in $workloads; do
   CLEAN_CACHE
-  cmd="./ycsbc -db rocksdb -dbpath $dbpath -threads 1 -P $file_name -run true -dboption 2 -dbstatistics true -dbwaitforbalance true >>out.out 2>&1 "
+  cmd="./ycsbc -db pmbtree -threads 1 -P $file_name -run true -dbstatistics true -dbwaitforbalance false >>out.out 2>&1 "
   echo $cmd >>out.out
   echo $cmd
   eval $cmd

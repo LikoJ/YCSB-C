@@ -21,5 +21,7 @@ DB* DBFactory::CreateDB(utils::Properties &props) {
     return new BasicDB;
   } else if (props["dbname"] == "pmskiplist") {
     return new PMSkiplist;
+  } else if (props["dbname"] == "pmbtree") {
+    return new PMBTree;
   } else return NULL;
 }

@@ -11,6 +11,7 @@
 #include <string>
 #include "db/basic_db.h"
 #include "db/pmskiplist.h"
+#include "db/pmbtree.h"
 
 using namespace std;
 using ycsbc::DB;

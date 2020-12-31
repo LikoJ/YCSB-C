@@ -12,6 +12,7 @@
 #include "db/basic_db.h"
 #include "db/pmskiplist.h"
 #include "db/pmbtree.h"
+#include "db/pmhashtable.h"
 
 using namespace std;
 using ycsbc::DB;
@@ -24,5 +25,7 @@ DB* DBFactory::CreateDB(utils::Properties &props) {
     return new PMSkiplist;
   } else if (props["dbname"] == "pmbtree") {
     return new PMBTree;
+  } else if (props["dbname"] == "pmhashtable") {
+    return new PMHashTable;
   } else return NULL;
 }
